@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    
+    <title>
+      Demo Form
+    </title>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.11.0.js"></script>
+      
+    <script src="js/formBuilder.min.js"></script>
+
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">      
+
+    <style type="text/css">
+
+        body
+        {
+            background-color: #FFF7C9; 
+        }
+        form
+        {   margin-top: 20px;
+            margin-left: 20px;
+            margin-right: 20px;
+       
+        }
+        #formContainer
+        {
+            padding-bottom: 20px;
+            background-color: #FFF; 
+            
+            margin: auto;
+            width: 540px;
+
+            border-radius: 4px;
+        
+        }
+
+        #underConstructionDiv
+        {   
+            color: #FF8C00;
+            margin-left: 45%;
+        }
+    </style>
+    
+
+    <script>
+    
+
+        $(document).ready(function () {
+
+            var _fieldBase = new FieldBase();
+
+            var dataItems = _fieldBase.getLocalStorageDataItems();
+
+            var form = document.createElement("form");
+
+            form.setAttribute("role", "form");
+
+            $.each(JSON.parse(dataItems), function (index, item) {
+
+                var data = JSON.parse(item);
+
+                var dataObj = createDataObject(data.type);
+
+                dataObj.initialize(data.type, data);
+
+                var field = createFieldObject(data.type, dataObj);
+
+                form.appendChild(field.getBootstrapView((index + 1)));
+
+                var br = document.createElement("br");
+
+                form.appendChild(br);
+        
+            });
+
+            document.getElementById("formContainer").appendChild(form);
+        });
+
+
+    </script>
+</head>
+<body>
+
+    <br/>
+
+   <div id="underConstructionDiv"><em><b>Under construction</b></em></div> 
+
+    <div id="formContainer"> </div>
+
+    <br/>  <br/>  <br/>
+  
+</body>
+</html>
