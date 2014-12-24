@@ -8,21 +8,11 @@ group :development, :test do
 	gem 'sqlite3', '~> 1.3.10'
 end
 
-<<<<<<< HEAD
-group :development, :test do
-	gem 'sqlite3', '1.3.10'
-end
 
-group :production do
-	gem 'pg', '0.17.1'
-end
-
-
-=======
 group :production do 
 	gem 'pg', '0.17.1'
 end
->>>>>>> static-controller
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
