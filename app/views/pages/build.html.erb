@@ -1,0 +1,61 @@
+<h1>Pages#build</h1>
+<p>Find me in app/views/pages/build.html.erb</p>
+
+<br> <br> <br>
+    <div class="formBuilder"></div>
+ 
+
+    <br> <br> 
+    <!-- button hyperlink below is used for demo purposes  
+    <div class="buttonContainer">           </div> 
+      <a target="_blank" href="DemoForm.html" class="myButton" style="display:none">View form</a>  -->
+
+
+    <%= link_to "View form", form_path, class: "myButton", style: "display:none" %>  
+
+
+<script>
+
+    $(document).ready(function () {
+
+        $('.myButton').click(function (event) {
+          /*  event.preventDefault();*/
+
+            var dataItems = [];
+
+            var fb = new FormBuilder();
+
+            new FieldBase().saveDataItemsToLocalStorage(JSON.stringify(fb.getFormData()));
+
+            /* var myWindow = window.open("DemoForm.html", "_blank"); */
+
+        });
+
+        $(document).on("click", '.fieldMenuItem', handler);
+    });
+
+    function handler() {
+
+        setTimeout(checkWhenToSetVisible, 100);
+    }
+
+    function checkWhenToSetVisible() {
+
+
+        if ($('.formBuilder[data-state]').length > 2) {
+
+            var left = $('.formBuilder :first-child').offset().left;
+
+            var newMargin = (left + 640) + "px";
+
+            $('.myButton').css("margin-left", newMargin);
+
+            $('.myButton').css("display", "inline");
+
+            $(document).off("click", '.fieldMenuItem', handler);
+
+        }
+
+    } 
+
+</script>
