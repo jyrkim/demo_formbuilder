@@ -1,9 +1,10 @@
 DemoFormbuilder::Application.routes.draw do
 
-
+  match '/demoform', to: "bootstraps#form", :via => [:get]
+  #get "bootstraps/form"
   # redirect("/public/FormBuilder.html")
 
-  match '/build', to: "pages#build", :via => [:get]
+  match '/formbuilder', to: "pages#build", :via => [:get]
   match '/form', to: "pages#form", :via => [:get]
   #get "pages/build"
   #get "pages/form"

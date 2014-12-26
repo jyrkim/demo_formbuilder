@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "bootstraps.css" %>
+
+<br/>
+
+<div id="underConstructionDiv"><em><b>Under construction</b></em></div> 
+
+<div id="formContainer"> </div>
+
+<br/>  <br/>  <br/>
+
+
+<script>
+
+    $(document).ready(function () {
+
+        var _fieldBase = new FieldBase();
+
+        var dataItems = _fieldBase.getLocalStorageDataItems();
+
+        var form = document.createElement("form");
+
+        form.setAttribute("role", "form");
+
+        $.each(JSON.parse(dataItems), function (index, item) {
+
+            var data = JSON.parse(item);
+
+            var dataObj = createDataObject(data.type);
+
+            dataObj.initialize(data.type, data);
+
+            var field = createFieldObject(data.type, dataObj);
+
+            form.appendChild(field.getBootstrapView((index + 1)));
+
+            var br = document.createElement("br");
+
+            form.appendChild(br);
+    
+        });
+
+        document.getElementById("formContainer").appendChild(form);
+    });
+
+
+</script>

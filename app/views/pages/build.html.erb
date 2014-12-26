@@ -1,5 +1,15 @@
-<h1>Pages#build</h1>
-<p>Find me in app/views/pages/build.html.erb</p>
+
+
+<%= stylesheet_link_tag "formBuilder.min.css" %>
+
+<%= stylesheet_link_tag "jquery-ui-1.11.0.css"%>
+
+<%= stylesheet_link_tag "jquery-ui-1.11.0.theme.css" %>
+
+<%= stylesheet_link_tag "pages.css" %>
+
+
+
 
 <br> <br> <br>
     <div class="formBuilder"></div>
@@ -11,7 +21,7 @@
       <a target="_blank" href="DemoForm.html" class="myButton" style="display:none">View form</a>  -->
 
 
-    <%= link_to "View form", form_path, class: "myButton", style: "display:none", target: "_blank" %>  
+    <%= link_to "View form", demoform_path, class: "myButton", style: "display:none", target: "_blank" %>  
 
 
 <script>
