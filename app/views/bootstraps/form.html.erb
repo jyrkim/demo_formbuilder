@@ -1,4 +1,6 @@
-<%= stylesheet_link_tag asset_path('bootstraps.css') %>
+<%= javascript_include_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js" %>
+
+<%= stylesheet_link_tag "http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" %>
 
 <br/>
 
@@ -40,7 +42,21 @@
         });
 
         document.getElementById("formContainer").appendChild(form);
+
+        setCSS();
     });
+
+    function setCSS() {
+
+        $("body").css( "background-color", "#FFF7C9" );  
+
+        $("form").css( { "margin-top": "20px", "margin-left": "20px", "margin-right": "20px" } );
+
+        $("#formContainer").css( { "padding-bottom": "20px", "background-color": "#FFF", "margin":  "auto", "width" : "540px", "border-radius": "4px"} );
+
+        $("#underConstructionDiv").css( { "color": "#FF8C00;", "margin-left": "45%" } );
+
+    }
 
 
 </script>
